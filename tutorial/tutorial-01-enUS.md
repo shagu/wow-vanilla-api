@@ -44,7 +44,7 @@ Now you have to specify the .lua file which the game should load for the addon. 
 To set inline color codes in the game, `|c` is usually used. The first two hexadecimal digits after the |c are for transparency, the next ones are for red, then green, then blue. `00` is the lowest value, `FF` is the highest value. Counting is done in hexadecimal system from 0-9 then from A-F (`0123456789ABCDEF`).
 
 **|cFF**$\color{red}{\textsf{00}}\color{green}{\textsf{FF}}\color{blue}{\textsf{00}}$ would be for example:
-- Transparency: 100% visible (FF)
+- Opacity: 100% visible (FF)
 - Red: 0% visible (00)
 - Green: 100% visible (FF)
 - Blue: 0% visible (00)

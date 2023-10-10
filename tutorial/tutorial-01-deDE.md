@@ -45,7 +45,7 @@ Nun muss noch die .lua Datei angegeben werden, welche das Spiel für das Addon l
 Um inline-Farbcodes im Spiel zu setzen wird meist `|c` genutzt. Hierbei wird ein HEX Farbcode gewählt. die ersten beiden Hexadezimalstellen nach dem |c dienen der Transparenz, die nächsten stehen für Rot, dann Grün, dann Blau. `00` ist hierbei der niedrigste Wert, `FF` ist der höchste wert. Gezählt wird hierbei im Hexadezimal system von 0-9 dann von A-F (`0123456789ABCDEF`).
 
 **|cFF**$\color{red}{\textsf{00}}\color{green}{\textsf{FF}}\color{blue}{\textsf{00}}$ wäre beispielsweise:
-- Transparenz: 100% sichtbar (FF)
+- Sichtbarkeit: 100% sichtbar (FF)
 - Rot: 0% sichtbar (00)
 - Grün: 100% sichtbar (FF)
 - Blau: 0% visible (00)
