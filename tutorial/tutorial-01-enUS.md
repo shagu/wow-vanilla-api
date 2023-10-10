@@ -82,8 +82,8 @@ Here are the following options:
 - "FULLSCREEN_DIALOG"
 - "TOOLTIP"
 
-To understand the order: `"BACKGROUND"` is covered by `"LOW"`, `"LOW"` is covered by `"MEDIUM"`, `"MEDIUM"` is covered by `"HIGH"` and so on....
-Exception here is `"PARENT"`, because there it is not the lowest level, but the same STRATA is used as for the frame from which it originated.
+To understand the order: `"BACKGROUND"` is covered by `"LOW"`, `"LOW"` is covered by `"MEDIUM"`, `"MEDIUM"` is covered by `"HIGH"` and so on...
+Exception here is `"PARENT"`, because it's not the lowest level, but the same STRATA as the one from its origin (parent).
 
 In the following lines we set the width and the height (`SetWidth()` & `SetHeight()`) to the screen size (`GetScreenWidth()` & `GetScreenHeight()`).
 In addition, the UIScale is taken into account using: `UIParent:GetEffectiveScale()`.
