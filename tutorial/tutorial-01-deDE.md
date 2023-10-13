@@ -4,7 +4,7 @@
 
 Durch diese kleine Tutorial versuche ich kleine Addons anhand des Quelltextes zu erklären und jedermann die Welt von Lua und der WoW-API näher zu bringen.
 
-In diesem ersten Guide geht es um **ShaguCombat**. Dies ist ein kleine Addon, dass den Infight Status anhand eines pulsierend rot leuchtenden Bildschirmrandes anzeigt.
+In diesem ersten Guide geht es um **ShaguCombat**. Dies ist ein kleines Addon, dass den Infight Status anhand eines pulsierend rot leuchtenden Bildschirmrandes anzeigt.
 
 Das Addon besitzt gerademal 50 Zeilen und eignet sich somit optimal für den Einstieg.
 
@@ -19,10 +19,10 @@ Behandelt werden folgende Themen:
 
 ## 1. TOC Dateien
 
-Möchte man ein Addon schreiben, muss zunächst eine .toc Datei angelegt werden, welche den selben Dateinamen wie der Ordner besitzt. In meinem Fall: ShaguCombat
+Möchte man ein Addon schreiben, muss zunächst eine .toc Datei angelegt werden, welche den selben Dateinamen wie der Ordner besitzt. In meinem Fall: `ShaguCombat.toc`
 
 ```toc
-## Interface: 11200 
+## Interface: 11200
 ## Title: |cff33ffccShagu|cffffffffCombat
 ## Author: Shagu
 ## Notes: Notifies about your infight state via glowing screen edges
@@ -86,7 +86,7 @@ Hier gibt es folgende Möglichkeiten:
 Zum Verständnis der Reihenfolge: `"BACKGROUND"` wird von `"LOW"` verdeckt, `"LOW"` wird von `"MEDIUM"` verdeckt, `"MEDIUM"` wird von `"HIGH"` verdeckt usw...
 Ausnahme hier ist `"PARENT"`, denn dort handelt es sich nicht um die niedrigste Ebene, sondern es wird die gleiche STRATA verwendet, wie für das Frame aus welchem es hervorging.
 
-In den folgenden Zeilen setzen wir die Breite und die Höhe (`SetWidth()` & `SetHeight()`) auf die Bildschirmgröße (`GetScreenWidth()` & `GetScreenHeight()`). 
+In den folgenden Zeilen setzen wir die Breite und die Höhe (`SetWidth()` & `SetHeight()`) auf die Bildschirmgröße (`GetScreenWidth()` & `GetScreenHeight()`).
 Zusätzlich wird das UIScale berücksichtigt mittels: `UIParent:GetEffectiveScale()`
 
 Nun richten wir das Frame In der Bildschirmmitte aus in dem wir `SetPoint()` auf `"CENTER"` setzen mit einem x-offset von 0 und einem y-offset von 0.
@@ -156,24 +156,24 @@ Da es nun relativ langweilig ist, ein Frame von Hand ein- und auszubleden, wolle
    edgeFile = "Interface\\AddOns\\ShaguCombat\\border", edgeSize = 16,
    insets = {left = 16, right = 16, top = 16, bottom = 16},
  }
- 
+
  -- build the frame
  local ShaguCombat = CreateFrame("Frame")
- 
+
  ShaguCombat:SetFrameStrata("BACKGROUND")
  ShaguCombat:SetWidth(GetScreenWidth() * UIParent:GetEffectiveScale())
  ShaguCombat:SetHeight(GetScreenHeight() * UIParent:GetEffectiveScale())
- 
+
  ShaguCombat:SetBackdrop(backdrop)
  ShaguCombat:SetPoint("CENTER",0,0)
  ShaguCombat:Hide()
- 
+
 +-- register for events
 +ShaguCombat:RegisterEvent("PLAYER_REGEN_ENABLED")
 +ShaguCombat:RegisterEvent("PLAYER_REGEN_DISABLED")
 +
 +-- show/hide on combat
-+ShaguCombat:SetScript("OnEvent", function() 
++ShaguCombat:SetScript("OnEvent", function()
 +    if event == "PLAYER_REGEN_DISABLED" then
 +        ShaguCombat:Show()
 +        -- UIErrorsFrame:AddMessage("ShaguCombat |cffffffaa INFIGHT")
@@ -201,22 +201,22 @@ Nun zeigt das Addon mit einem weißen Rahmen um den Bildschirm an, ob man sich I
    edgeFile = "Interface\\AddOns\\ShaguCombat\\border", edgeSize = 16,
    insets = {left = 16, right = 16, top = 16, bottom = 16},
  }
- 
+
  -- build the frame
  local ShaguCombat = CreateFrame("Frame")
- 
+
  ShaguCombat:SetFrameStrata("BACKGROUND")
  ShaguCombat:SetWidth(GetScreenWidth() * UIParent:GetEffectiveScale())
  ShaguCombat:SetHeight(GetScreenHeight() * UIParent:GetEffectiveScale())
- 
+
  ShaguCombat:SetBackdrop(backdrop)
  ShaguCombat:SetPoint("CENTER",0,0)
  ShaguCombat:Hide()
- 
+
  -- register for events
  ShaguCombat:RegisterEvent("PLAYER_REGEN_ENABLED")
  ShaguCombat:RegisterEvent("PLAYER_REGEN_DISABLED")
- 
+
 +-- let it fade..
 +ShaguCombat:SetScript("OnUpdate",function(s,e)
 +    if not ShaguCombat.clock then    ShaguCombat.clock = GetTime() -0.1 end
@@ -234,9 +234,9 @@ Nun zeigt das Addon mit einem weißen Rahmen um den Bildschirm an, ob man sich I
 +        ShaguCombat:SetBackdropBorderColor(1,0.2+ShaguCombat.fadeValue, ShaguCombat.fadeValue, 1-ShaguCombat.fadeValue);
 +    end
 +end)
- 
+
  -- show/hide on combat
- ShaguCombat:SetScript("OnEvent", function() 
+ ShaguCombat:SetScript("OnEvent", function()
      if event == "PLAYER_REGEN_DISABLED" then
          ShaguCombat:Show()
          -- UIErrorsFrame:AddMessage("ShaguCombat |cffffffaa INFIGHT")
@@ -306,7 +306,7 @@ ShaguCombat:SetScript("OnUpdate",function(s,e)
 end);
 
 -- show/hide on combat
-ShaguCombat:SetScript("OnEvent", function() 
+ShaguCombat:SetScript("OnEvent", function()
   if event == "PLAYER_REGEN_DISABLED" then
     ShaguCombat:Show()
     -- UIErrorsFrame:AddMessage("ShaguCombat |cffffffaa INFIGHT")
@@ -318,7 +318,7 @@ ShaguCombat:SetScript("OnEvent", function()
 end)
 ```
 
-Das wars auch schon. Hier das komplette Addon zum Download: 
+Das wars auch schon. Hier das komplette Addon zum Download:
 [Download: ShaguCombat](https://github.com/shagu/ShaguCombat/archive/master.zip)
 
 Viel Spaß im Code und vergesst nicht einen ⭐ dazulassen.
