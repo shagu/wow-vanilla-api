@@ -293,6 +293,10 @@ Fired when a message is sent or received in the Party channel.
 - **arg3**: Language the message was spoken in.(See [CHAT_MSG_SAY](http://www.wowwiki.com/Events_C_%28Cancel%2C_Character%2C_Chat%2C_Cinematic%2C_Clear%2C_Close%2C_Confirm%2C_Corpse%2C_Craft%2C_Current%2C_Cursor%2C_CVar%29#CHAT_MSG_SAY) for example code)
 
 ## CHAT_MSG_RAID
+Fires when a player speaks in /raid chat.
+
+## CHAT_MSG_RAID_WARNING
+Fired when a warning message is sent or received from the raid leader.
 
 ## CHAT_MSG_SAY
 Fired when a message is sent or received in the Say channel.
