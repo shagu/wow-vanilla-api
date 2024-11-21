@@ -10,6 +10,8 @@ Fired when the actionbar numbers appear, typically when you drag a spell to the 
 
 - **arg1**: the mouse button used to drag the spell. Known values: "LeftButton", "RightButton"
 
+## ACTIONBAR_HIDEGRID
+
 ## ACTIONBAR_SLOT_CHANGED
 Fired when any actionbar slot's contents change.
 
@@ -38,6 +40,8 @@ Fired when something in the actionbar or your inventory becomes usable again (af
 This event fires whenever an AddOn is loaded (fires once for each AddOn loaded if multiple AddOns are being loaded), whether that is during the inital Loading Phase or when an AddOn is loaded using the LoadAddOn("addonname") or UIParentLoadAddon("addonname") function.  This event always fires after that Saved Variables of the AddOn that just finished loading have been loaded from the disk.
 
 - **arg1**: name of the AddOn that was just loaded
+
+## ADDON_ACTION_FORBIDDEN
 
 ## AUCTION_BIDDER_LIST_UPDATE
 
@@ -110,11 +114,17 @@ Fired when the client recieves a chat message.
 - **arg3**: TODO
 - **arg4**: channel length
 
+## CHAT_MSG_ADDON
+
 ## CHAT_MSG_AFK
 Fired when the client receives an AFK auto-response
 
 - **arg1**: AFK response message
 - **arg2**: author
+
+## CHAT_MSG_BATTLEGROUND
+
+## CHAT_MSG_BATTLEGROUND_LEADER
 
 ## CHAT_MSG_BG_SYSTEM_ALLIANCE
 Fired for alliance specific events in the battleground such as assaulting a graveyard.
@@ -196,6 +206,8 @@ Fired when a creature misses you
 
 ## CHAT_MSG_COMBAT_ERROR
 
+## CHAT_MSG_COMBAT_FACTION_CHANGE
+
 ## CHAT_MSG_COMBAT_FRIENDLYPLAYER_HITS
 
 ## CHAT_MSG_COMBAT_FRIENDLYPLAYER_MISSES
@@ -215,6 +227,8 @@ Fired when you successfully kill a worthy pvp opponent
 Fired when any hostile (NPC or player) dies near you.
 
 - **arg1**: complete text from combat-log (e.g. "Snowshoe Rabbit dies.")
+
+## CHAT_MSG_COMBAT_LOG
 
 ## CHAT_MSG_COMBAT_MISC_INFO
 Fired when you gain reputation from killing a creature or finishing a quest.
@@ -254,6 +268,8 @@ Fired on sending or revicing a custom emote (one used by /e, /emote or a send ch
 - **arg1**: Message that was sent/received.
 - **arg2**: Name of the player who sent the message.
 
+## CHAT_MSG_FILTERED
+
 ## CHAT_MSG_GUILD
 Fired when a message is sent or received in the Guild channel.
 
@@ -267,6 +283,8 @@ Fired when a message is sent or received in the Guild channel.
 Fired when a unit loots an item.
 
 - **arg1**: Message that was sent/received.
+
+## CHAT_MSG_MONEY
 
 ## CHAT_MSG_MONSTER_EMOTE
 
@@ -294,6 +312,10 @@ Fired when a message is sent or received in the Party channel.
 
 ## CHAT_MSG_RAID
 Fires when a player speaks in /raid chat.
+
+## CHAT_MSG_RAID_BOSS_EMOTE
+
+## CHAT_MSG_RAID_LEADER
 
 ## CHAT_MSG_RAID_WARNING
 Fired when a warning message is sent or received from the raid leader.
@@ -328,6 +350,8 @@ Fired when some chat messages about skills are displayed.
 - **arg1**: The content of the chat message. **arg1** formats are found in Blizzard's `GlobalStrings.lua`.  Some possibilities:
     * `ERR_SKILL_GAINED_S` (eg. "You have gained the Blacksmithing skill.")
     * `ERR_SKILL_UP_SI` (eg. "Your skill in Cooking has increased to 221.")
+
+## CHAT_MSG_SPELL_AURA_GONE_PARTY
 
 ## CHAT_MSG_SPELL_AURA_GONE_OTHER
 Fired whenever a buff or debuff wears off of a mob, npc, or another player.
@@ -461,6 +485,8 @@ Fired when the guild dress frame is closed
 ## CLOSE_WORLD_MAP
 Fired when the world map is hidden.
 
+## COMBAT_TEXT_UPDATE
+
 ## CONFIRM_BINDER
 
 ## CONFIRM_LOOT_ROLL
@@ -577,10 +603,16 @@ Fired when you are invited to join a guild.
 ## GUILD_ROSTER_UPDATE
 Fired when the client's guild info cache has been updated after a call to [GuildRoster()](http://wowwiki.wikia.com/wiki/API_GuildRoster).
 
+## GM_PLAYER_INFO
+
+## GMSURVEY_DISPLAY
+
 ## IGNORELIST_UPDATE
 Fired when a player is added or removed from the ignore list.  Event is called twice.  Not certain why it is called twice.
 
 ## IGR_BILLING_NAG_DIALOG
+
+## INSPECT_HONOR_UPDATE
 
 ## INSTANCE_BOOT_START
 Fired when the countdown to boot a player from an instance starts.
@@ -630,6 +662,12 @@ Fired when a corpse is looted
 Fired when loot is removed from a corpse.
 arg1 - Slot number
 
+## LOTTERY_ITEM_UPDATE
+
+## LOTTERY_SHOW
+
+## MACRO_ACTION_FORBIDDEN
+
 ## MAIL_CLOSED
 
 ## MAIL_FAILED
@@ -665,6 +703,8 @@ Fired when the merchant frame is shown.
 
 ## MERCHANT_UPDATE
 Fired when a merchant updates
+
+## MINIGAME_UPDATE
 
 ## MINIMAP_PING
 Fired when the minimap is pinged.
@@ -753,6 +793,8 @@ Fired when the pet bar is updates.
 
 ## PET_BAR_UPDATE_COOLDOWN
 Fired when a pet spell cooldown starts. It is not called when cooldown ends.
+
+## PET_DISMISS_START
 
 ## PET_STABLE_CLOSED
 
@@ -924,8 +966,14 @@ This event is fired very often.  This includes, but is not limited to: viewing a
 ## QUEST_PROGRESS
 Fired when a player is viewing the status of their quest.
 
+## QUEST_WATCH_UPDATE
+
 ## RAID_ROSTER_UPDATE
 Fired whenever a raid is formed or disbanded, players are leaving or joining a raid (unsure if rejected join requests also fire the event), or when looting rules are changed (regardless of being in raid or party!)
+
+## RAID_TARGET_UPDATE
+
+## READY_CHECK
 
 ## REPLACE_ENCHANT
 Fired when the player must confirm an enchantment replacement.
@@ -962,6 +1010,8 @@ Fired when a spellcaster begins channelling
 - **arg1**: Duration (in milliseconds)
 - **arg2**: Spell Name
 On version 1.2.1, this event doesnt seem to work.
+
+## SPELLCAST_CHANNEL_STOP
 
 ## SPELLCAST_CHANNEL_UPDATE
 Fired when a channelling spell is updated.
@@ -1015,6 +1065,8 @@ Fired when a group loot item is being rolled on.
 
 - **arg1**: The rollID of the item being rolled on.
 - **arg2**: The roll time.
+
+## START_MINIGAME
 
 ## STOP_AUTOREPEAT_SPELL
 
@@ -1318,6 +1370,14 @@ Fired when there's a reason to update the chat windows.
 ## UPDATE_GM_STATUS
 
 ## UPDATE_INVENTORY_ALERTS
+
+## UPDATE_INSTANCE_INFO
+
+## UPDATE_LFG
+
+## UPDATE_LFG_LIST
+
+## UPDATE_LFG_TYPES
 
 ## UPDATE_MACROS
 
