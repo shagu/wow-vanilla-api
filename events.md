@@ -915,7 +915,11 @@ Fired a few seconds after ending combat, as regen rates return to normal.
 
 ## PLAYER_TARGET_CHANGED
 
-- **arg1**: holds the same value as GetTime() yields.
+- **arg1-9**: Undefined. Not cleared.
+
+The args hold the same values as in the parent functions. If `TargetByName()` is called from within
+an OnUpdate function, the `arg1` will be the same as the `arg1` of the OnUpdate script. If it's called from
+within an OnClick function, it will hold the same `arg1` as the of the OnClick. And so on...
 
 ## PLAYER_TRADE_MONEY
 Fired when the player trades money
